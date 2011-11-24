@@ -7,6 +7,31 @@
 
 #define TIMER_INTERVAL 300
 
+const wxColour colors[] =
+{
+    wxColour(0, 0, 0), wxColour(204, 102, 102),
+    wxColour(102, 204, 102), wxColour(102, 102, 204),
+    wxColour(204, 204, 102), wxColour(204, 102, 204),
+    wxColour(102, 204, 204), wxColour(218, 170, 0)
+};
+
+const wxColour light[] =
+{
+    wxColour(0, 0, 0), wxColour(248, 159, 171),
+    wxColour(121, 252, 121), wxColour(121, 121, 252),
+    wxColour(252, 252, 121), wxColour(252, 121, 252),
+    wxColour(121, 252, 252), wxColour(252, 198, 0)
+};
+
+const wxColour dark[] =
+{
+    wxColour(0, 0, 0), wxColour(128, 59, 59),
+    wxColour(59, 128, 59), wxColour(59, 59, 128),
+    wxColour(128, 128, 59), wxColour(128, 59, 128),
+    wxColour(59, 128, 128), wxColour(128, 98, 0)
+};
+
+
 class Board : public wxPanel
 {
 public:
@@ -45,7 +70,7 @@ private:
     wxStatusBar* status_bar;
     bool started;
     bool paused;
-    bool pieceFalling;
+    bool pieceDoneFalling;
     Piece current;
     int curX;
     int curY;

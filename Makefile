@@ -18,9 +18,9 @@ WXLINK 	= `wx-config --libs`
 .cpp.o :
 	$(CC) $(WXFLAGS) $(CFLAGS) -c $<
 
-all : $(EXE)
+all : $(HEADERS) $(EXE)
 
-$(EXE) : $(OBJS) $(HEADERS)
+$(EXE) : $(OBJS)
 	$(LD) $(WXLINK) -o $@ $(OBJS)
 
 clean :
