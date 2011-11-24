@@ -5,22 +5,20 @@ LDFLAGS =
 RM	= rm
 
 EXE 	= Tetris
-SRCS 	= Pieces.cpp Board.cpp TetrisGame.cpp main.cpp
-HEADERS = Pieces.h Board.h TetrisGame.h
-OBJS	= ${SRCS:.c=.o}
+SRCS 	= Piece.cpp Board.cpp TetrisGame.cpp main.cpp
+HEADERS = Piece.h Board.h TetrisGame.h
+OBJS	= ${SRCS:.cpp=.o}
 
 .SUFFIXES: #clear them just in case
-.SUFFIXES: .o .c
+.SUFFIXES: .o .cpp
 
-.c.o :
+.cpp.o :
 	$(CC) $(CFLAGS) -c $<
 
 all : $(EXE)
 
-$(EXE) : $(OBJS)
+$(EXE) : $(OBJS) $(HEADERS)
 	$(LD) -o $@ $(OBJS)
-
-$(OBJS) : $(HEADERS)
 
 clean :
 	-$(RM) $(EXE) $(OBJS)
