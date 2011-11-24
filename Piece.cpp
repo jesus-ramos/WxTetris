@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include <algorithm>
 
-#include "Piece.h"
+#include "Piece.hpp"
 
 using namespace std;
 

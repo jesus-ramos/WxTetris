@@ -6,19 +6,22 @@ RM	= rm
 
 EXE 	= Tetris
 SRCS 	= Piece.cpp Board.cpp TetrisGame.cpp main.cpp
-HEADERS = Piece.h Board.h TetrisGame.h
+HEADERS = Piece.hpp Board.hpp TetrisGame.hpp
 OBJS	= ${SRCS:.cpp=.o}
+
+WXFLAGS = `wx-config --cppflags`
+WXLINK 	= `wx-config --libs`
 
 .SUFFIXES: #clear them just in case
 .SUFFIXES: .o .cpp
 
 .cpp.o :
-	$(CC) $(CFLAGS) -c $<
+	$(CC) $(WXFLAGS) $(CFLAGS) -c $<
 
 all : $(EXE)
 
 $(EXE) : $(OBJS) $(HEADERS)
-	$(LD) -o $@ $(OBJS)
+	$(LD) $(WXLINK) -o $@ $(OBJS)
 
 clean :
 	-$(RM) $(EXE) $(OBJS)

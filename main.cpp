@@ -1,4 +1,12 @@
-int main()
+#include <wx/wx.h>
+
+#include "main.hpp"
+#include "TetrisGame.hpp"
+
+IMPLEMENT_APP(TetrisApp);
+
+bool TetrisApp::OnInit()
 {
-    return 0;
+    /* TODO */
+    return true;
 }

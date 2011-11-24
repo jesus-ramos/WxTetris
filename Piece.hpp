@@ -1,5 +1,5 @@
-#ifndef _PIECE_H
-#define _PIECE_H
+#ifndef _PIECE_HPP
+#define _PIECE_HPP
 
 #define XCOORD 0
 #define YCOORD 1
