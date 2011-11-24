@@ -5,6 +5,8 @@
 
 #include "Piece.hpp"
 
+#define TIMER_INTERVAL 300
+
 class Board : public wxPanel
 {
 public:
@@ -19,8 +21,17 @@ protected:
     void OnTimer(wxCommandEvent& event);
 
 private:
-    int Width() { return GetClientSize().GetWidth() / BoardWidth };
-    int Height() { return GetClientSize().GetHeight / BoardHeight };
+    /* Little hack to predefine the size */
+    enum
+    {
+        BoardWidth = 10,
+        BoardHeight = 22
+    };
+
+    PieceShape& PieceAt(int x, int y) { return board[y * BoardWidth + x]; }
+    int Width() { return GetClientSize().GetWidth() / BoardWidth; }
+    int Height() { return GetClientSize().GetHeight() / BoardHeight; }
+    static bool InBounds(int x, int y) { return x >= 0 && x < BoardWidth && y >= 0 && y < BoardHeight; }
     void Clear();
     void DropCurrentToBottom();
     void DropCurrentOneLine();
@@ -28,10 +39,7 @@ private:
     void ClearFullLines();
     void MakeNewPiece();
     bool DoMove(const Piece& piece, int newX, int newY);
-    void DrawShape(wxPaintDC& dc, int x, int y, PieceShape shape);
-
-    const int BoardWidth = 10;
-    const int BoardHeight = 22;
+    void DrawPieceSquare(wxPaintDC& dc, int x, int y, PieceShape shape);
 
     wxTimer* timer;
     wxStatusBar* status_bar;
