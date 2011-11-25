@@ -38,6 +38,7 @@ public:
     Board(wxFrame* parent);
     void Start();
     void Pause();
+    void Reset();
 
     /* wx event handlers */
 protected:

@@ -19,11 +19,8 @@ Board::Board(wxFrame* parent) :
     Connect(wxEVT_TIMER, wxCommandEventHandler(Board::OnTimer));
 }
 
-void Board::Start()
+void Board::Reset()
 {
-    if (paused)
-        return;
-
     started = true;
     pieceDoneFalling = false;
     score = 0;
@@ -32,6 +29,14 @@ void Board::Start()
 
     MakeNewPiece();
     timer->Start(TIMER_INTERVAL);
+}
+
+void Board::Start()
+{
+    if (paused)
+        return;
+
+    Reset();
 }
 
 void Board::Pause()
@@ -97,6 +102,11 @@ void Board::OnKeyDown(wxKeyEvent& event)
     if (keyCode == 'p' || keyCode == 'P')
     {
         Pause();
+        return;
+    }
+    else if (keyCode == 'r' || keyCode == 'R')
+    {
+        Reset();
         return;
     }
 
@@ -209,7 +219,7 @@ void Board::ClearFullLines()
 void Board::MakeNewPiece()
 {
     current.SetRandomShape();
-    curX = BoardWidth / 2 + 1;
+    curX = BoardWidth / 2;
     curY = BoardHeight - 1 + current.MinY();
 
     if (!DoMove(current, curX, curY))
