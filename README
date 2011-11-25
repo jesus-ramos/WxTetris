@@ -4,3 +4,10 @@ Also to show that writing a Tetris game even in C++ is relatively easy
 and Wx is simple enough to learn.
 
 Supposed to increase interest in C++ and linux development
+
+Pre-reqs:
+libwxbase dev packages
+
+To run:
+make
+./Tetris

@@ -79,8 +79,7 @@ void Board::OnPaint(wxPaintEvent& event)
     {
         int x = curX + current.x(i);
         int y = curY - current.y(i);
-        DrawPieceSquare(dc, x * Width(),
-                        top + (BoardHeight - y - 1) * Height(),
+        DrawPieceSquare(dc, x * Width(), top + (BoardHeight - y - 1) * Height(),
                         current.GetShape());
     }
 }
