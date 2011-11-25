@@ -5,7 +5,7 @@ IMPLEMENT_APP(TetrisApp);
 
 bool TetrisApp::OnInit()
 {
-    TetrisGame* tetrisGame = new TetrisGame(wxT("WxTetris SIG GAMES"));
+    TetrisGame* tetrisGame = new TetrisGame(wxT("WxTetris"));
     tetrisGame->Centre();
     tetrisGame->Show(true);
     

@@ -146,7 +146,7 @@ void Board::DropCurrentToBottom()
 {
     int y = curY;
     while (y)
-        if (!DoMove(current, curX, y--))
+        if (!DoMove(current, curX, --y))
             break;
     PieceHitBottom();
 }
