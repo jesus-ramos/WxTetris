@@ -23,10 +23,12 @@ void Board::Reset()
 {
     started = true;
     pieceDoneFalling = false;
+    paused = false;
     score = 0;
 
     Clear();
 
+    statusBar->SetStatusText(wxT("Score: 0"));
     MakeNewPiece();
     timer->Start(TIMER_INTERVAL);
 }
@@ -91,28 +93,24 @@ void Board::OnPaint(wxPaintEvent& event)
 
 void Board::OnKeyDown(wxKeyEvent& event)
 {
-    if (!started || current.GetShape() == None)
+    int keyCode = event.GetKeyCode();
+
+    switch (keyCode)
+    {
+        case 'P':
+            Pause();
+            return;
+        case 'R':
+            Reset();
+            return;
+    }
+
+    if (!started || current.GetShape() == None || paused)
     {
         event.Skip();
         return;
     }
-
-    int keyCode = event.GetKeyCode();
-
-    if (keyCode == 'p' || keyCode == 'P')
-    {
-        Pause();
-        return;
-    }
-    else if (keyCode == 'r' || keyCode == 'R')
-    {
-        Reset();
-        return;
-    }
-
-    if (paused)
-        return;
-
+    
     switch (keyCode)
     {
         case WXK_SPACE:
@@ -122,7 +120,7 @@ void Board::OnKeyDown(wxKeyEvent& event)
             DoMove(current.RotateLeft(), curX, curY);
             break;
         case WXK_DOWN:
-            DoMove(current.RotateRight(), curX, curY);
+            DropCurrentOneLine();
             break;
         case WXK_LEFT:
             DoMove(current, curX - 1, curY);

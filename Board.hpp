@@ -50,7 +50,7 @@ private:
     /* Little hack to predefine the size */
     enum
     {
-        BoardWidth = 10,
+        BoardWidth = 11,
         BoardHeight = 22
     };
 
