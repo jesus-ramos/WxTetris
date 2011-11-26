@@ -4,7 +4,7 @@ Board::Board(wxFrame* parent) :
     wxPanel(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBORDER_NONE)
 {
     timer = new wxTimer(this, 1);
-    status_bar = parent->GetStatusBar();
+    statusBar = parent->GetStatusBar();
     pieceDoneFalling = false;
     started = false;
     paused = false;
@@ -49,14 +49,14 @@ void Board::Pause()
     if (paused)
     {
         timer->Stop();
-        status_bar->SetStatusText(wxT("Game Paused"));
+        statusBar->SetStatusText(wxT("Game Paused"));
     }
     else
     {
         timer->Start(TIMER_INTERVAL);
         wxString str;
         str.Printf(wxT("Score: %d"), score);
-        status_bar->SetStatusText(str);
+        statusBar->SetStatusText(str);
     }
     Refresh();
 }
@@ -209,7 +209,7 @@ void Board::ClearFullLines()
     score += lines;
     wxString str;
     str.Printf(wxT("Score: %d"), score);
-    status_bar->SetStatusText(str);
+    statusBar->SetStatusText(str);
 
     pieceDoneFalling = true;
     current.SetShape(None);
@@ -227,7 +227,7 @@ void Board::MakeNewPiece()
         current.SetShape(None);
         timer->Stop();
         started = false;
-        status_bar->SetStatusText(wxT("You Lose :("));
+        statusBar->SetStatusText(wxT("You Lose :("));
     }
 }
 

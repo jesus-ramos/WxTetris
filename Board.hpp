@@ -68,7 +68,7 @@ private:
     void DrawPieceSquare(wxPaintDC& dc, int x, int y, PieceShape shape);
 
     wxTimer* timer;
-    wxStatusBar* status_bar;
+    wxStatusBar* statusBar;
     bool started;
     bool paused;
     bool pieceDoneFalling;
