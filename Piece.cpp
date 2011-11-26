@@ -1,4 +1,3 @@
-#include <cstdlib>
 #include <algorithm>
 
 #include "Piece.hpp"
