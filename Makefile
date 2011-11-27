@@ -1,7 +1,7 @@
 CC 	= g++
 CFLAGS	= -Wall
 LD	= $(CC)
-LDFLAGS =
+LDFLAGS = #unused
 RM	= rm
 
 EXE 	= Tetris
@@ -27,7 +27,7 @@ include .depend
 	$(CC) $(WXFLAGS) $(CFLAGS) -c $<
 
 $(EXE) : $(OBJS)
-	$(LD) $(LDFLAGS) $(WXLINK) -o $@ $(OBJS)
+	$(LD) $(WXLINK) -o $@ $(OBJS)
 
 .PHONY : clean
 clean :
