@@ -1,3 +1,5 @@
 # Ignore object files in git status and exe
 *.o
 Tetris
+.depend
+.zcache

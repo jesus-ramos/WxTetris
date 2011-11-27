@@ -6,7 +6,8 @@ and Wx is simple enough to learn.
 Supposed to increase interest in C++ and linux development
 
 Pre-reqs:
-libwxbase dev packages
+libwxbase dev and dbg packages
+libwxgtk
 
 To run:
 make

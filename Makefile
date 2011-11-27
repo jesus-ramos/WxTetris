@@ -27,8 +27,8 @@ include .depend
 	$(CC) $(WXFLAGS) $(CFLAGS) -c $<
 
 $(EXE) : $(OBJS)
-	$(LD) $(WXLINK) -o $@ $(OBJS)
+	$(LD) $(LDFLAGS) $(WXLINK) -o $@ $(OBJS)
 
 .PHONY : clean
 clean :
-	-$(RM) $(EXE) $(OBJS)
+	-$(RM) $(EXE) $(OBJS) .depend
