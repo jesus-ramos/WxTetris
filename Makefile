@@ -29,9 +29,9 @@ include .depend
 $(EXE) : $(OBJS)
 	$(LD) $(WXLINK) -o $@ $(OBJS)
 
-TAGS: $(SRCS)
+TAGS : $(SRCS)
 	find . -regex ".*\.[cChH]\(pp\)?" -print | etags -
 
 .PHONY : clean
 clean :
-	-$(RM) $(EXE) $(OBJS) .depend
+	-$(RM) $(EXE) $(OBJS) .depend TAGS
