@@ -1,5 +1,5 @@
 CC 	= g++
-CFLAGS	= -Wall
+CFLAGS	= -Wall -m32
 LD	= $(CC)
 LDFLAGS = #unused
 RM	= rm
