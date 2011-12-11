@@ -27,7 +27,7 @@ include .depend
 	$(CC) $(WXFLAGS) $(CFLAGS) -c $<
 
 $(EXE) : $(OBJS)
-	$(LD) $(WXLINK) -o $@ $(OBJS)
+	$(LD) -o $@ $(OBJS) $(WXLINK)
 
 TAGS : $(SRCS)
 	find . -regex ".*\.[cChH]\(pp\)?" -print | etags -
