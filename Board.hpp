@@ -5,7 +5,7 @@
 
 #include "Piece.hpp"
 
-#define TIMER_INTERVAL 300
+#define TIMER_INTERVAL 500
 
 const wxColour colors[] = 
 {
