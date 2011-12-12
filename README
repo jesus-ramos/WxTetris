@@ -5,9 +5,9 @@ and Wx is simple enough to learn.
 
 Supposed to increase interest in C++ and linux development
 
-Pre-reqs:
-libwxbase dev and dbg packages
-libwxgtk
+Requires:
+wxWidgets developer package and/or wxGTK package depending on your
+distribution or OS. Tested in Linux (most distros) and Mac.
 
 To run:
 make
